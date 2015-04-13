@@ -1,0 +1,252 @@
+
+
+Drop database IIITGEEKS;
+
+Create Database IIITGEEKS;
+
+USE IIITGEEKS;
+
+
+Create Table Users(
+UserId VARCHAR(20),
+FirstName VARCHAR(20) NOT NULL,
+LastName VARCHAR(20),
+Password VARCHAR(50) NOT NULL,
+ProfessionalStatus ENUM('Student','Professional') NOT NULL,
+Sex ENUM('F','M'),
+EmailId VARCHAR(40),
+Phone VARCHAR(15),
+Motto VARCHAR(100),
+Year INT,
+Degree ENUM('B.Tech','M.Tech','PhD'),
+AdderScore DECIMAL(6,2) DEFAULT 0.00,
+SolverScore DECIMAL(6,2) DEFAULT 0.00,
+GeeknessLevel ENUM('BlackCoder','GreyCoder','WhiteCoder') DEFAULT 'WhiteCoder',
+PRIMARY KEY(UserId)
+);
+
+Insert into users values('shobhit','Shobhit','Agarwal',md5('1234'),'Student','M','jgv@jhv','686888686','vjv',2,'B.tech',0,0,'GreyCoder');
+Insert into users values('vaibhav','Vaibhav','Jaimini',md5('1234'),'Student','M','jgv@jhv','686888686','vjv',2,'B.tech',0,0,'GreyCoder');
+
+CREATE TABLE Contest(
+ContestId INT AUTO_INCREMENT,
+ContestName VARCHAR(30),
+StartDate DATETIME NOT NULL,
+EndDate DATETIME NOT NULL,
+HostUserId VARCHAR(20) NOT NULL,
+PRIMARY KEY (ContestId,HostUserId),
+FOREIGN KEY (HostUserId) REFERENCES Users(UserId)
+);
+Insert into Contest Values(1,'TEST','2015-04-02 20:00:00','2015-04-06 21:00:00','shobhit');
+INSERT INTO `Contest` (`ContestId`, `ContestName`, `StartDate`, `EndDate`, `HostUserId`) VALUES
+(6, 'kjhk', '2015-03-13 00:00:00', '2015-03-26 00:00:00', 'vaibhav'),
+(7, 'abcd', '2015-03-04 00:00:00', '2015-03-19 00:00:00', 'vaibhav'),
+(8, 'fsads', '2015-03-06 00:00:00', '2015-03-24 00:00:00', 'vaibhav'),
+(9, 'asfa', '2015-03-25 00:00:00', '2015-03-30 00:00:00', 'vaibhav'),
+(10, 'fsafa', '2015-03-04 00:00:00', '2015-03-18 00:00:00', 'vaibhav'),
+(11, 'faslkjf', '2015-03-05 00:00:00', '2015-03-25 00:00:00', 'vaibhav'),
+(12, 'fasdf', '2015-03-06 00:00:00', '2015-03-06 00:19:00', 'vaibhav'),
+(13, 'fsdaklj', '2015-03-13 00:00:00', '2015-03-18 00:00:00', 'vaibhav'),
+(14, 'fsafjl', '2015-03-04 00:00:00', '2015-03-25 00:00:00', 'vaibhav'),
+(15, 'fskla', '2015-03-03 00:00:00', '2015-03-19 00:00:00', 'vaibhav'),
+(16, 'fsakj', '2015-03-06 00:00:00', '2015-03-19 00:00:00', 'vaibhav'),
+(17, 'fskl', '2015-03-06 00:00:00', '2015-03-12 00:00:00', 'vaibhav'),
+(18, 'fa;k', '2015-03-11 00:00:00', '2015-03-25 00:00:00', 'vaibhav'),
+(19, 'abcdd', '2015-03-06 00:00:00', '2015-03-20 00:00:00', 'vaibhav'),
+(20, 'klj', '2015-03-18 00:00:00', '2015-03-24 00:00:00', 'vaibhav'),
+(21, 'fksaj', '2015-03-03 00:00:00', '2015-03-17 00:00:00', 'vaibhav'),
+(22, 'fksj', '2015-03-06 00:00:00', '2015-03-19 00:00:00', 'vaibhav'),
+(23, 'faks', '2015-03-06 00:00:00', '2015-03-12 00:00:00', 'vaibhav'),
+(24, 'asfkfl', '2015-03-03 00:00:00', '2015-03-11 00:00:00', 'vaibhav'),
+(25, 'fdsaf', '2015-03-05 00:00:00', '2015-03-11 00:00:00', 'vaibhav'),
+(26, 'fsaklj', '2015-03-05 00:00:00', '2015-03-12 00:00:00', 'vaibhav'),
+(27, 'fsd', '2015-03-06 00:00:00', '2015-03-11 00:00:00', 'vaibhav'),
+(28, 'fsadk', '2015-03-06 00:00:00', '2015-03-13 00:00:00', 'vaibhav'),
+(29, 'fklsd', '2015-03-07 00:00:00', '2015-03-24 00:00:00', 'vaibhav'),
+(30, 'slkd', '2015-03-05 00:00:00', '2015-03-20 00:00:00', 'vaibhav'),
+(31, 'flsd', '2015-03-13 00:00:00', '2015-03-25 00:00:00', 'vaibhav'),
+(32, 'sdf', '2015-03-18 00:00:00', '2015-03-25 00:00:00', 'vaibhav'),
+(33, 'dasf', '2015-03-06 00:00:00', '2015-03-26 00:00:00', 'vaibhav'),
+(34, 'afsf', '2015-03-13 00:00:00', '2015-03-20 00:00:00', 'vaibhav'),
+(35, 'fls', '2015-03-06 00:00:00', '2015-03-20 00:00:00', 'vaibhav'),
+(36, 'aklf', '2015-03-12 00:00:00', '2015-03-31 00:00:00', 'vaibhav'),
+(37, 'alfk', '2015-03-06 00:00:00', '2015-03-19 00:00:00', 'vaibhav'),
+(38, 'fska', '2015-03-06 00:00:00', '2015-03-07 00:00:00', 'vaibhav'),
+(39, 'fk', '2015-03-06 00:00:00', '2015-03-13 00:00:00', 'vaibhav'),
+(40, 'idsal', '2015-03-10 00:00:00', '2015-03-26 00:00:00', 'vaibhav'),
+(41, 'lfksf', '2015-03-05 00:00:00', '2015-03-25 00:00:00', 'vaibhav'),
+(42, 'abcd', '2015-03-05 00:00:00', '2015-03-19 00:00:00', 'vaibhav'),
+(43, 'aflj', '2015-03-04 00:00:00', '2015-03-13 00:00:00', 'vaibhav'),
+(44, 'aslj', '2015-03-06 00:00:00', '2015-03-31 00:00:00', 'vaibhav'),
+(45, 'vjalfa', '2015-03-04 00:00:00', '2015-03-26 00:00:00', 'vaibhav'),
+(46, 'dlksa', '2015-03-12 00:00:00', '2015-03-20 00:00:00', 'vaibhav'),
+(47, 'fad', '2015-03-07 00:00:00', '2015-03-12 00:00:00', 'vaibhav'),
+(48, 'falka', '2015-03-17 00:00:00', '2015-03-23 00:00:00', 'vaibhav'),
+(49, 'fsdjlkj', '2015-03-12 00:00:00', '2015-03-26 00:00:00', 'vaibhav'),
+(50, 'slfj', '2015-03-04 00:00:00', '2015-03-11 00:00:00', 'vaibhav'),
+(51, 'abcd', '2015-04-02 00:00:00', '2015-04-16 00:00:00', 'vaibhav'),
+(52, 'ldakj', '2015-04-03 00:00:00', '2015-04-23 00:00:00', 'vaibhav'),
+(53, 'abcd', '2015-04-03 00:00:00', '2015-04-16 00:00:00', 'vaibhav'),
+(54, 'fkds', '2015-04-03 00:00:00', '2015-04-10 00:00:00', 'vaibhav'),
+(55, 'fjslkd', '2015-04-04 00:00:00', '2015-04-10 00:00:00', 'vaibhav'),
+(56, 'lfd', '2015-04-03 00:00:00', '2015-04-08 00:00:00', 'vaibhav'),
+(57, 'flsdj', '2015-04-03 00:00:00', '2015-04-04 00:00:00', 'vaibhav'),
+(58, 'fjakl', '2015-04-03 00:00:00', '2015-04-04 00:00:00', 'vaibhav'),
+(59, '3lasfd', '2015-04-06 00:00:00', '2015-04-08 00:00:00', 'vaibhav'),
+(60, 'contest', '2015-04-16 00:00:00', '2015-04-23 00:00:00', 'vaibhav'),
+(61, 'abd', '2015-04-09 11:15:00', '2015-04-23 11:17:00', 'vaibhav'),
+(62, 'bbj', '2015-04-15 17:17:00', '2015-04-30 03:12:00', 'vaibhav'),
+(63, 'abcd', '2015-04-10 11:17:00', '2015-04-30 12:08:00', 'vaibhav'),
+(64, 'abcd', '2015-04-08 15:10:00', '2015-04-29 05:16:00', 'vaibhav'),
+(65, 'akjfa', '2015-04-01 15:18:00', '2015-04-30 07:09:00', 'vaibhav'),
+(66, 'abcd', '2015-04-02 14:09:00', '2015-04-14 15:18:00', 'vaibhav'),
+(67, 'abcd', '2015-04-08 16:18:00', '2015-04-24 15:17:00', 'vaibhav'),
+(68, 'and', '2015-04-04 17:16:00', '2015-04-30 16:16:00', 'vaibhav'),
+(69, 'sajk', '2015-04-02 00:00:00', '2015-05-01 00:00:00', 'vaibhav'),
+(70, 'fa', '2015-04-09 17:16:00', '2015-04-17 00:00:00', 'vaibhav'),
+(71, 'abcdr', '2015-04-17 00:16:00', '2015-04-30 16:13:00', 'vaibhav'),
+(72, 'fgg', '2015-04-03 17:16:00', '2015-04-24 14:13:00', 'vaibhav'),
+(73, '121', '2015-04-03 17:16:00', '2015-04-25 17:17:00', 'vaibhav'),
+(74, '121', '2015-04-03 17:17:00', '2015-04-23 15:15:00', 'vaibhav'),
+(75, 'fsad', '2015-04-02 17:13:00', '2015-04-17 13:17:00', 'vaibhav'),
+(76, 'xvz', '2015-04-03 16:18:00', '2015-04-16 15:16:00', 'vaibhav');
+
+CREATE TABLE Problems(
+ProblemId INT AUTO_INCREMENT,
+ProblemName VARCHAR(25) NOT NULL,
+ProblemSetter VARCHAR(20) NOT NULL,
+MemoryLimit DECIMAL(10,2) NOT NULL,
+TimeLimit DECIMAL(4,2) NOT NULL,
+Type ENUM('C','P') NOT NULL,
+ContestId INT, 
+NoOfSolvers INT DEFAULT 0,
+DateAdded DATE,
+PRIMARY KEY (ProblemId),
+FOREIGN KEY (ContestId) REFERENCES Contest(ContestId),
+FOREIGN KEY (ProblemSetter) REFERENCES Users(UserId)
+);
+
+
+Insert into Problems values(001,'MULTIPLY','shobhit',233,1,'C',1,12,'2013-04-05');
+Insert into Problems values(002,'ADD','vaibhav',256,0.5,'P',null,10,'2014-01-25');
+Insert into Problems values(003,'MULTIPLY','shobhit',233,1,'C',1,12,'2013-04-05');
+Insert into Problems values(004,'SUB','shobhit',233,1,'C',1,12,'2013-04-05');
+Insert into Problems values(005,'DIV','shobhit',233,1,'C',1,12,'2013-04-05');
+
+INSERT INTO `Problems` (`ProblemId`, `ProblemName`,`ProblemSetter`, `MemoryLimit`, `TimeLimit`, `Type`, `ContestId`, `NoOfSolvers`, `DateAdded`) VALUES
+(6, 'va','vaibhav', '23445.00', '99.99', 'p', NULL, 0, '0000-00-00'),
+(7, 'fklasj','vaibhav', '203.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(8, 'skaljf','vaibhav', '43.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(9, 'skaljf','vaibhav', '43.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(10, 'skaljf','vaibhav', '43.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(11, 'aflkj','vaibhav', '3.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(12, 'falk','vaibhav', '4.00', '4.00', 'p', NULL, 0, '0000-00-00'),
+(13, 'aslfdkj','vaibhav', '32.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(14, 'lksadf', 'vaibhav', '4.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(15, 'lkfd', 'vaibhav', '3.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(16, 'fsd;k','vaibhav', '23.00', '2.00', 'p', NULL, 0, '0000-00-00'),
+(17, 'lksfd','vaibhav', '3.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(18, 'alsfj','vaibhav', '3.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(19, 'vk','vaibhav', '3.00', '2.00', 'p', NULL, 0, '0000-00-00'),
+(20, 'dlfsk','vaibhav', '3.00', '2.00', 'p', NULL, 0, '0000-00-00'),
+(21, 'lkdfsl','vaibhav', '3.00', '2.00', 'p', NULL, 0, '0000-00-00'),
+(22, 'fdlkj','vaibhav', '3.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(23, 'dklsj','vaibhav', '3.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(24, 'lskj','vaibhav', '3.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(25, 'sdflk','vaibhav', '3.00', '2.00', 'p', NULL, 0, '0000-00-00'),
+(26, 'fsdlkj','vaibhav', '3.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(27, 'flkaj','vaibhav', '3.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(28, 'flskj','vaibhav', '3.00', '3.00', 'p', NULL, 0, '0000-00-00'),
+(29, 'falskf','vaibhav', '343.00', '4.00', 'p', NULL, 0, '0000-00-00'),
+(34, 'lfadsj','vaibhav', '34.00', '3.00', 'c', 57, 0, '0000-00-00'),
+(35, 'abcd','vaibhav', '3.00', '3.00', 'c', 58, 0, '0000-00-00'),
+(36, 'flsjk','vaibhav', '43.00', '3.00', 'c', 58, 0, '0000-00-00'),
+(37, 'dskaljf','vaibhav', '43.00', '3.00', 'c', 59, 0, '0000-00-00'),
+(38, 'klsdjf','vaibhav', '32.00', '2.00', 'c', 59, 0, '0000-00-00'),
+(39, 'abcd','vaibhav', '2.00', '2.00', 'c', 60, 0, '0000-00-00'),
+(40, 'defd','vaibhav', '232.00', '2.00', 'c', 60, 0, '0000-00-00'),
+(41, 'add numbers','vaibhav', '33.00', '2.00', 'p', NULL, 0, '2015-04-03'),
+(42, 'abd1','vaibhav', '343.00', '2.00', 'c', 61, 0, '2015-04-03'),
+(43, 'adk','vaibhav', '3.00', '2.00', 'c', 63, 0, '2015-04-13'),
+(44, 'abcd','vaibhav', '23.00', '2.00', 'c', 67, 0, '2015-04-13'),
+(45, 'aslkfj','vaibhav', '334.00', '3.00', 'c', 67, 0, '2015-04-13'),
+(46, 'abcdcontets','vaibhav', '34.00', '3.00', 'c', 67, 0, '2015-04-13'),
+(47, 'abcdef','vaibhav', '34.00', '3.00', 'c', 67, 0, '2015-04-13'),
+(48, '343d','vaibhav', '34.00', '2.00', 'c', 67, 0, '2015-04-13'),
+(49, 'aslkfj','vaibhav', '2.00', '3.00', 'c', 67, 0, '2015-04-13'),
+(50, 'slja','vaibhav', '2.00', '2.00', 'c', 67, 0, '2015-04-13'),
+(51, 'ekj','vaibhav', '2.00', '2.00', 'c', 71, 0, '2015-04-13'),
+(52, 'abcd','vaibhav', '3.00', '3.00', 'c', 74, 0, '2015-04-13'),
+(53, '434','vaibhav', '43.00', '3.00', 'c', 74, 0, '2015-04-13'),
+(54, 'as','vaibhav', '3.00', '3.00', 'c', 75, 0, '2015-04-13'),
+(55, '3343','vaibhav', '23.00', '3.00', 'c', 76, 0, '2015-04-13'),
+(56, '34','vaibhav', '34.00', '4.00', 'c', 76, 0, '2015-04-13');
+
+CREATE TABLE Submission(
+SubmissionId INT AUTO_INCREMENT,
+UserId VARCHAR(20),
+TimeOfSubmission DATETIME NOT NULL,
+ExecutionTime DECIMAL(4,2) NOT NULL,
+MemoryUsed DECIMAL(10,2) NOT NULL,
+Language VARCHAR(15) NOT NULL,
+Result ENUM('AC','WA','TLE','CE','RE') NOT NULL,
+PRIMARY KEY(SubmissionId),
+FOREIGN KEY (UserId) REFERENCES Users(UserId)
+);
+
+insert into Submission
+ values(null,'vaibhav','2015-01-03 21:50:59',0.00,3.27,'C++ 4.9.2','AC');
+
+
+insert into Submission values(null,'shobhit','2015-01-10 21:50:59',0.00,3.27,'C++ 4.9.2','AC');
+
+CREATE TABLE ContestSubmission(
+ContestId INT,
+UserId VARCHAR(20),
+SubmissionId INT,
+ProblemId INT,
+PRIMARY KEY(ContestId,UserId,SubmissionId),
+FOREIGN KEY(ContestId) REFERENCES Contest(ContestId),
+FOREIGN KEY(UserId) REFERENCES Users(UserId),
+FOREIGN KEY(SubmissionId) REFERENCES Submission(SubmissionId)
+);
+insert into ContestSubmission
+ Values(1,'shobhit',2,1);
+
+
+insert into ContestSubmission
+ Values(1,'vaibhav',1,1);
+
+CREATE TABLE ProblemSubmission(
+ProblemId INT,
+UserId VARCHAR(20),
+SubmissionId INT,
+PRIMARY KEY(ProblemId,UserId,SubmissionId),
+FOREIGN KEY(ProblemId) REFERENCES Problems(ProblemId),
+FOREIGN KEY(UserId) REFERENCES Users(UserId),
+FOREIGN KEY(SubmissionId) REFERENCES Submission(SubmissionId)
+);
+
+insert into ProblemSubmission
+ Values(1,'shobhit',2);
+
+
+insert into ProblemSubmission
+ Values(1,'vaibhav',1);
+
+CREATE TABLE Comments(
+Time DATETIME,
+UserId VARCHAR(20),
+ProblemId INT,
+ProblemStatus ENUM('1','0') NOT NULL,
+Statement VARCHAR(100) NOT NULL,
+PRIMARY KEY (Time,UserId,ProblemId),
+FOREIGN KEY (ProblemId) REFERENCES Problems(ProblemId),
+FOREIGN KEY (UserId) REFERENCES Users(UserId)
+);
+ 
+insert into Comments Values('2015-01-10 22:05:05','shobhit',1,'1','Cakewalk');
+insert into Comments Values('2015-01-13 22:05:05','vaibhav',1,'0','Cakewalk');
+insert into Comments Values('2015-01-12 22:05:05','shobhit',1,'1','Cakewalk');
+
+
