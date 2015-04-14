@@ -184,7 +184,6 @@ INSERT INTO `Problems` (`ProblemId`, `ProblemName`,`ProblemSetter`, `MemoryLimit
 
 CREATE TABLE Submission(
 SubmissionId INT AUTO_INCREMENT,
-UserId VARCHAR(20),
 TimeOfSubmission DATETIME NOT NULL,
 ExecutionTime DECIMAL(4,2) NOT NULL,
 MemoryUsed DECIMAL(10,2) NOT NULL,
