@@ -22,6 +22,8 @@ Degree ENUM('B.Tech','M.Tech','PhD'),
 AdderScore DECIMAL(6,2) DEFAULT 0.00,
 SolverScore DECIMAL(6,2) DEFAULT 0.00,
 GeeknessLevel ENUM('BlackCoder','GreyCoder','WhiteCoder') DEFAULT 'WhiteCoder',
+ConfirmationCode VARCHAR(7),
+Verified ENUM('Yes','No'),
 PRIMARY KEY(UserId)
 );
 
@@ -194,7 +196,7 @@ FOREIGN KEY (UserId) REFERENCES Users(UserId)
 );
 
 insert into Submission
- values(null,'vaibhav','2015-01-03 21:50:59',0.00,3.27,'C++ 4.9.2','AC');
+ values(null,'2015-01-03 21:50:59',0.00,3.27,'C++ 4.9.2','AC');
 
 
 insert into Submission values(null,'shobhit','2015-01-10 21:50:59',0.00,3.27,'C++ 4.9.2','AC');
